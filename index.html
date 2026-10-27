@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dharmik Fusion</title>
+<meta name="description" content="Dharmik Fusion brings the Quarry community together to celebrate Diwali and the festivals of India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;600&display=swap">
+<style>
+  /* Layout: night-sky page; wide hero photo under the wordmark, a masonry-style photo wall, two videos, a short get-involved band */
+  :root {
+    --night: #15122b;
+    --night-2: #221c45;
+    --line: #3a3266;
+    --marigold: #f4a62a;
+    --flame: #ffd27a;
+    --ink: #f3eee4;
+    --muted: #b9b2d4;
+    --font-display: "Yatra One", Georgia, serif;
+    --font-body: "Mukta", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  a { color: var(--flame); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--flame); outline-offset: 3px; border-radius: 4px; }
+
+  /* Header */
+  .top { border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-block: 14px; }
+  .brand { font-family: var(--font-display); font-size: 1.35rem; color: var(--flame); text-decoration: none; }
+  nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .95rem; }
+  nav a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding-block: 48px 32px; display: grid; gap: 28px; }
+  .hero-text { display: grid; gap: 12px; max-width: 40rem; }
+  .eyebrow { margin: 0; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--marigold); font-weight: 600; }
+  h1 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.8rem, 9vw, 5rem); line-height: 1; color: var(--flame); text-wrap: balance; }
+  .lead { margin: 0; font-size: 1.2rem; max-width: 34rem; }
+  .garland { height: 14px; background: radial-gradient(circle at 7px 7px, var(--marigold) 5px, transparent 6px) 0 0 / 18px 14px repeat-x; opacity: .9; }
+  figure { margin: 0; }
+  .hero figure img { width: 100%; height: auto; display: block; border-radius: 6px; }
+  figcaption { color: var(--muted); font-size: .9rem; margin-top: 8px; }
+
+  /* Sections */
+  section { padding-block: 40px; border-top: 1px solid var(--line); }
+  h2 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); color: var(--flame); }
+  .sub { margin: 0 0 24px; color: var(--muted); max-width: 40rem; }
+
+  /* Photo wall */
+  .wall { columns: 3 16rem; column-gap: 14px; }
+  .wall figure { break-inside: avoid; margin-bottom: 14px; }
+  .wall button { all: unset; cursor: zoom-in; display: block; border-radius: 6px; overflow: hidden; }
+  .wall img { width: 100%; height: auto; display: block; transition: transform .3s ease; }
+  .wall button:hover img { transform: scale(1.03); }
+
+  /* Videos */
+  .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 20px; }
+  video { width: 100%; height: auto; display: block; border-radius: 6px; background: #000; aspect-ratio: 832 / 464; }
+
+  /* Get involved */
+  .involve { display: grid; gap: 14px; max-width: 40rem; }
+  .involve p { margin: 0; color: var(--muted); }
+  .soon { justify-self: start; padding: 6px 16px; border: 1px solid var(--marigold); border-radius: 999px; color: var(--marigold); font-size: .9rem; font-weight: 600; }
+
+  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+  footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+  /* Lightbox */
+  dialog { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
+  dialog::backdrop { background: rgba(10, 8, 24, .88); }
+  dialog img { max-width: 94vw; max-height: 84vh; display: block; border-radius: 6px; }
+  dialog p { color: var(--ink); text-align: center; margin: 10px 0 0; }
+  .close { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); background: var(--night-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font: inherit; cursor: pointer; }
+
+  @media (prefers-reduced-motion: reduce) { .wall img { transition: none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Dharmik Fusion</a>
+    <nav aria-label="Sections">
+      <a href="#photos">Photos</a>
+      <a href="#videos">Videos</a>
+      <a href="#get-involved">Get involved</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="hero-text">
+      <p class="eyebrow">Quarry community · Diwali 2026</p>
+      <h1>Dharmik Fusion</h1>
+      <p class="lead">Neighbours from the Quarry coming together to celebrate Diwali and the festivals of India.</p>
+    </div>
+    <div class="garland" aria-hidden="true"></div>
+    <figure>
+      <img src="images/community-group.jpg" width="1600" height="731" alt="The Dharmik Fusion community gathered on stage under marigold garlands">
+      <figcaption>Our Diwali 2026 family photo.</figcaption>
+    </figure>
+  </div>
+
+  <section id="photos">
+    <div class="wrap">
+      <h2>Photos</h2>
+      <p class="sub">Moments from this year's celebration. Tap a photo to see it larger.</p>
+      <div class="wall">
+        <figure><button type="button" data-full="images/stage-play.jpg" data-caption="A scene from the children's play"><img src="images/stage-play-sm.jpg" width="720" height="540" loading="lazy" alt="Children performing a play on a stage decorated with marigold garlands"></button><figcaption>A scene from the children's play</figcaption></figure>
+        <figure><button type="button" data-full="images/backstage.jpg" data-caption="Waiting in the wings"><img src="images/backstage-sm.jpg" width="405" height="720" loading="lazy" alt="Young performers in costume at the side of the stage"></button><figcaption>Waiting in the wings</figcaption></figure>
+        <figure><button type="button" data-full="images/performers.jpg" data-caption="Young performers in costume"><img src="images/performers-sm.jpg" width="720" height="480" loading="lazy" alt="Children in traditional costume speaking on stage"></button><figcaption>Young performers in costume</figcaption></figure>
+        <figure><button type="button" data-full="images/welcome-address.jpg" data-caption="Welcome address"><img src="images/welcome-address-sm.jpg" width="540" height="720" loading="lazy" alt="A woman in a sari giving a speech on stage"></button><figcaption>Welcome address</figcaption></figure>
+        <figure><button type="button" data-full="images/certificate.jpg" data-caption="Celebrating our performers"><img src="images/certificate-sm.jpg" width="480" height="720" loading="lazy" alt="A young performer receiving a certificate on stage"></button><figcaption>Celebrating our performers</figcaption></figure>
+        <figure><button type="button" data-full="images/little-ones.jpg" data-caption="Our youngest guests"><img src="images/little-ones-sm.jpg" width="405" height="720" loading="lazy" alt="Young children in festive dress on the stage"></button><figcaption>Our youngest guests</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="wrap">
+      <h2>Videos</h2>
+      <p class="sub">Highlights from the stage.</p>
+      <div class="videos">
+        <figure>
+          <video controls playsinline preload="none" poster="videos/ramayana-performance.jpg" width="832" height="464">
+            <source src="videos/ramayana-performance.mp4" type="video/mp4">
+          </video>
+          <figcaption>The children's play (about 2 minutes)</figcaption>
+        </figure>
+        <figure>
+          <video controls playsinline preload="none" poster="videos/stage-moment.jpg" width="832" height="464">
+            <source src="videos/stage-moment.mp4" type="video/mp4">
+          </video>
+          <figcaption>Behind the curtain (26 seconds)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="get-involved">
+    <div class="wrap involve">
+      <h2>Get involved</h2>
+      <p>We're already thinking about next year. Event dates, RSVPs and volunteer sign-ups will be posted here.</p>
+      <span class="soon">Coming soon</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Dharmik Fusion · Quarry community</span>
+    <span>dharmikfusion.org</span>
+  </div>
+</footer>
+
+<dialog id="lightbox" aria-label="Photo">
+  <button class="close" type="button" id="lb-close">Close</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script>
+  (function () {
+    var dlg = document.getElementById('lightbox');
+    var img = document.getElementById('lb-img');
+    var cap = document.getElementById('lb-cap');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    document.querySelectorAll('.wall button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        img.src = b.dataset.full;
+        img.alt = b.querySelector('img').alt;
+        cap.textContent = b.dataset.caption || '';
+        dlg.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+</script>
+</body>
+</html>
