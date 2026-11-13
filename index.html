@@ -1,122 +1,197 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dharmik Fusion</title>
-<meta name="description" content="Dharmik Fusion brings the Quarry community together to celebrate Diwali and the festivals of India.">
+<title>Dharmik Fusion Cultural Club</title>
+<meta name="description" content="Dharmik Fusion Cultural Club brings neighbours in Erith together to celebrate the festivals, food, music and dance of India. Rooted in heritage, growing together.">
+<meta property="og:title" content="Dharmik Fusion Cultural Club">
+<meta property="og:description" content="Rooted in heritage, growing together. A community cultural club in Erith.">
+<meta property="og:image" content="https://dharmikfusion.org/images/banner.jpg">
+<meta property="og:url" content="https://dharmikfusion.org/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap">
 <style>
-  /* Layout: night-sky page; wide hero photo under the wordmark, a masonry-style photo wall, two videos, a short get-involved band */
+  /* Layout: cream page following the club brand guide; the banner is the hero, sand bands alternate with cream, navy footer */
   :root {
-    --night: #15122b;
-    --night-2: #221c45;
-    --line: #3a3266;
-    --marigold: #f4a62a;
-    --flame: #ffd27a;
-    --ink: #f3eee4;
-    --muted: #b9b2d4;
-    --font-display: "Yatra One", Georgia, serif;
-    --font-body: "Mukta", "Segoe UI", system-ui, sans-serif;
-    color-scheme: dark;
+    --df-navy: #1C2155;
+    --df-red: #C62D1F;
+    --df-red-dark: #A3241A;
+    --df-gold: #F2A900;
+    --df-teal: #0F7B6C;
+    --df-cream: #FFF6E3;
+    --df-sand: #F6E3B4;
+    --df-white: #FFFFFF;
+    --df-font-heading: "Libre Baskerville", Georgia, serif;
+    --df-font-body: "Montserrat", Arial, sans-serif;
+    --df-font-script: "Great Vibes", "Brush Script MT", cursive;
+    color-scheme: light;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--night);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.6;
+    background: var(--df-cream);
+    color: var(--df-navy);
+    font: 400 17px/1.65 var(--df-font-body);
   }
   .wrap {
-    max-width: 68rem;
+    max-width: 72rem;
     margin: 0 auto;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
-  a { color: var(--flame); }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--flame); outline-offset: 3px; border-radius: 4px; }
+  a { color: var(--df-teal); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--df-teal); outline-offset: 3px; border-radius: 4px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* Header */
-  .top { border-bottom: 1px solid var(--line); }
-  .top .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-block: 14px; }
-  .brand { font-family: var(--font-display); font-size: 1.35rem; color: var(--flame); text-decoration: none; }
-  nav { display: flex; gap: 20px; flex-wrap: wrap; }
-  nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .95rem; }
-  nav a:hover { color: var(--ink); }
+  .top {
+    background: var(--df-cream);
+    border-bottom: 3px solid var(--df-gold);
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+  }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--df-cream); z-index: 21; }
+  .top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 10px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--df-navy); }
+  .brand img { height: 44px; width: auto; }
+  .brand-name { display: grid; line-height: 1.1; }
+  .brand-name strong { font-family: var(--df-font-heading); font-size: 1.2rem; }
+  .brand-name span { font-weight: 600; font-size: .66rem; letter-spacing: .32em; text-transform: uppercase; color: var(--df-teal); }
+  nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+  nav a { color: var(--df-navy); text-decoration: none; font-weight: 600; font-size: .95rem; padding-block: 4px; border-bottom: 2px solid transparent; }
+  nav a:hover { border-bottom-color: var(--df-gold); }
 
   /* Hero */
-  .hero { padding-block: 48px 32px; display: grid; gap: 28px; }
-  .hero-text { display: grid; gap: 12px; max-width: 40rem; }
-  .eyebrow { margin: 0; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--marigold); font-weight: 600; }
-  h1 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.8rem, 9vw, 5rem); line-height: 1; color: var(--flame); text-wrap: balance; }
-  .lead { margin: 0; font-size: 1.2rem; max-width: 34rem; }
-  .garland { height: 14px; background: radial-gradient(circle at 7px 7px, var(--marigold) 5px, transparent 6px) 0 0 / 18px 14px repeat-x; opacity: .9; }
-  figure { margin: 0; }
-  .hero figure img { width: 100%; height: auto; display: block; border-radius: 6px; }
-  figcaption { color: var(--muted); font-size: .9rem; margin-top: 8px; }
+  .hero { padding-block: 28px 8px; }
+  .hero img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(28, 33, 85, .14); }
+  .intro { display: grid; gap: 14px; justify-items: center; text-align: center; padding-block: 32px 44px; }
+  .label { margin: 0; font-weight: 700; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; color: var(--df-teal); }
+  .script { margin: 0; font-family: var(--df-font-script); font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.2; color: var(--df-red); }
+  .intro p.lead { margin: 0; max-width: 40rem; font-size: 1.1rem; }
+  .divider { display: flex; align-items: center; gap: 12px; width: min(100%, 22rem); }
+  .divider::before, .divider::after { content: ""; flex: 1; height: 2px; background: var(--df-gold); }
+  .divider span { width: 10px; height: 10px; background: var(--df-navy); transform: rotate(45deg); }
+  .btn { display: inline-block; background: var(--df-red); color: var(--df-white); font-weight: 600; font-size: 1rem; text-decoration: none; padding: 12px 26px; border-radius: 999px; border: 0; cursor: pointer; font-family: inherit; }
+  .btn:hover { background: var(--df-red-dark); }
 
   /* Sections */
-  section { padding-block: 40px; border-top: 1px solid var(--line); }
-  h2 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem); color: var(--flame); }
-  .sub { margin: 0 0 24px; color: var(--muted); max-width: 40rem; }
+  section { padding-block: 56px; }
+  section.band { background: var(--df-sand); }
+  h2 { margin: 0 0 8px; font: 700 clamp(1.75rem, 4.5vw, 2.25rem)/1.25 var(--df-font-heading); text-wrap: balance; }
+  .sub { margin: 0 0 28px; max-width: 42rem; }
+
+  /* Diwali highlight */
+  .feature { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .feature img { width: 100%; height: auto; display: block; border-radius: 8px; }
+  figure { margin: 0; }
+  figcaption { font-size: .9rem; margin-top: 8px; }
 
   /* Photo wall */
-  .wall { columns: 3 16rem; column-gap: 14px; }
-  .wall figure { break-inside: avoid; margin-bottom: 14px; }
-  .wall button { all: unset; cursor: zoom-in; display: block; border-radius: 6px; overflow: hidden; }
+  .wall { columns: 3 15rem; column-gap: 14px; }
+  .wall figure { break-inside: avoid; margin-bottom: 18px; }
+  .wall button { all: unset; display: block; cursor: zoom-in; border-radius: 8px; overflow: hidden; border: 3px solid var(--df-white); box-shadow: 0 2px 8px rgba(28, 33, 85, .12); }
   .wall img { width: 100%; height: auto; display: block; transition: transform .3s ease; }
   .wall button:hover img { transform: scale(1.03); }
+  .wall button:focus-visible { outline: 3px solid var(--df-teal); outline-offset: 2px; }
 
   /* Videos */
-  .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 20px; }
-  video { width: 100%; height: auto; display: block; border-radius: 6px; background: #000; aspect-ratio: 832 / 464; }
+  .videos { display: grid; gap: 24px; }
+  .videos .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 24px; }
+  video { width: 100%; height: auto; display: block; border-radius: 8px; background: var(--df-navy); }
+  .featured video { aspect-ratio: 854 / 480; }
+  .pair video { aspect-ratio: 832 / 464; }
+  h3 { margin: 10px 0 2px; font: 700 1.2rem/1.4 var(--df-font-body); color: var(--df-navy); }
+  .meta { margin: 0; font-size: .9rem; color: var(--df-teal); font-weight: 600; }
 
-  /* Get involved */
-  .involve { display: grid; gap: 14px; max-width: 40rem; }
-  .involve p { margin: 0; color: var(--muted); }
-  .soon { justify-self: start; padding: 6px 16px; border: 1px solid var(--marigold); border-radius: 999px; color: var(--marigold); font-size: .9rem; font-weight: 600; }
+  /* Get connected */
+  .connect { display: grid; gap: 16px; justify-items: center; text-align: center; }
+  .connect p { margin: 0; max-width: 36rem; }
+  .email { font: 700 clamp(1.2rem, 4vw, 1.6rem)/1.3 var(--df-font-heading); color: var(--df-navy); word-break: break-word; user-select: all; }
+  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .btn-ghost { background: transparent; color: var(--df-navy); border: 2px solid var(--df-navy); }
+  .btn-ghost:hover { background: var(--df-navy); color: var(--df-white); }
+  .toast { min-height: 1.4em; font-size: .9rem; color: var(--df-teal); font-weight: 600; }
 
-  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
-  footer .wrap { padding-block: 24px 40px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+  /* Footer */
+  footer { background: var(--df-navy); color: var(--df-cream); border-top: 4px solid var(--df-gold); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-block: 28px 36px; font-size: .92rem; }
+  footer .foot-name { font: 700 1.1rem var(--df-font-heading); color: var(--df-gold); }
+  footer a { color: var(--df-gold); }
 
   /* Lightbox */
   dialog { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
-  dialog::backdrop { background: rgba(10, 8, 24, .88); }
-  dialog img { max-width: 94vw; max-height: 84vh; display: block; border-radius: 6px; }
-  dialog p { color: var(--ink); text-align: center; margin: 10px 0 0; }
-  .close { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); background: var(--night-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font: inherit; cursor: pointer; }
+  dialog::backdrop { background: rgba(28, 33, 85, .9); }
+  dialog img { max-width: 94vw; max-height: 82vh; display: block; border-radius: 8px; }
+  dialog p { color: var(--df-cream); text-align: center; margin: 10px 0 0; }
+  .close { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); }
 
-  @media (prefers-reduced-motion: reduce) { .wall img { transition: none; } }
+  @media (min-width: 760px) {
+    .feature { grid-template-columns: 3fr 2fr; align-items: center; }
+  }
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    .brand img { height: 38px; }
+    section { padding-block: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .wall img { transition: none; }
+  }
 </style>
 </head>
 <body>
+
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#">Dharmik Fusion</a>
+    <a class="brand" href="#">
+      <img src="images/logo-mark.png" width="240" height="188" alt="">
+      <span class="brand-name"><strong>Dharmik Fusion</strong><span>Cultural Club</span></span>
+    </a>
     <nav aria-label="Sections">
+      <a href="#diwali">Diwali 2026</a>
       <a href="#photos">Photos</a>
       <a href="#videos">Videos</a>
-      <a href="#get-involved">Get involved</a>
+      <a href="#connect">Get connected</a>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="wrap hero">
-    <div class="hero-text">
-      <p class="eyebrow">Quarry community · Diwali 2026</p>
-      <h1>Dharmik Fusion</h1>
-      <p class="lead">Neighbours from the Quarry coming together to celebrate Diwali and the festivals of India.</p>
-    </div>
-    <div class="garland" aria-hidden="true"></div>
-    <figure>
-      <img src="images/community-group.jpg" width="1600" height="731" alt="The Dharmik Fusion community gathered on stage under marigold garlands">
-      <figcaption>Our Diwali 2026 family photo.</figcaption>
-    </figure>
+    <h1 class="sr-only">Dharmik Fusion Cultural Club</h1>
+    <picture>
+      <source media="(max-width: 640px)" srcset="images/banner-sm.jpg">
+      <img src="images/banner.jpg" width="1600" height="800" alt="Dharmik Fusion Cultural Club banner with the lotus logo and the tagline Rooted in heritage, growing together">
+    </picture>
   </div>
+
+  <div class="wrap intro">
+    <p class="label">Erith community cultural club</p>
+    <p class="script">Rooted in heritage, growing together</p>
+    <div class="divider" aria-hidden="true"><span></span></div>
+    <p class="lead">Dharmik Fusion Cultural Club brings neighbours together to celebrate the festivals, food, music and dance of India, and to share them with everyone in our community.</p>
+    <a class="btn" href="#connect">Get connected</a>
+  </div>
+
+  <section id="diwali" class="band">
+    <div class="wrap feature">
+      <figure>
+        <img src="images/community-group.jpg" width="1600" height="731" alt="The Dharmik Fusion community gathered on stage under marigold garlands">
+      </figure>
+      <div>
+        <p class="label">Our first celebration</p>
+        <h2>Diwali 2026</h2>
+        <p>Families came together for an evening of performances, music, dance and good food. Thank you to everyone who performed, volunteered and joined us.</p>
+        <a href="#photos">See the photos</a>
+      </div>
+    </div>
+  </section>
 
   <section id="photos">
     <div class="wrap">
@@ -133,45 +208,68 @@
     </div>
   </section>
 
-  <section id="videos">
-    <div class="wrap">
-      <h2>Videos</h2>
-      <p class="sub">Highlights from the stage.</p>
-      <div class="videos">
+  <section id="videos" class="band">
+    <div class="wrap videos">
+      <div>
+        <h2>Videos</h2>
+        <p class="sub">Highlights from the stage.</p>
+      </div>
+      <figure class="featured">
+        <video controls playsinline preload="none" poster="videos/gentlemens-dance.jpg" width="854" height="480">
+          <source src="videos/gentlemens-dance.mp4" type="video/mp4">
+        </video>
+        <h3>The gentlemen's dance</h3>
+        <p class="meta">About 8 minutes</p>
+      </figure>
+      <div class="pair">
         <figure>
           <video controls playsinline preload="none" poster="videos/ramayana-performance.jpg" width="832" height="464">
             <source src="videos/ramayana-performance.mp4" type="video/mp4">
           </video>
-          <figcaption>The children's play (about 2 minutes)</figcaption>
+          <h3>The children's play</h3>
+          <p class="meta">About 2 minutes</p>
         </figure>
         <figure>
           <video controls playsinline preload="none" poster="videos/stage-moment.jpg" width="832" height="464">
             <source src="videos/stage-moment.mp4" type="video/mp4">
           </video>
-          <figcaption>Behind the curtain (26 seconds)</figcaption>
+          <h3>Behind the curtain</h3>
+          <p class="meta">26 seconds</p>
         </figure>
       </div>
     </div>
   </section>
 
-  <section id="get-involved">
-    <div class="wrap involve">
-      <h2>Get involved</h2>
-      <p>We're already thinking about next year. Event dates, RSVPs and volunteer sign-ups will be posted here.</p>
-      <span class="soon">Coming soon</span>
+  <section id="connect">
+    <div class="wrap connect">
+      <p class="label">Join us</p>
+      <h2>Get connected</h2>
+      <p>Would you like to join the club, perform, volunteer or sponsor an event? We'd love to hear from you. Get in touch by email:</p>
+      <p class="email" id="email">dharmikfusion@gmail.com</p>
+      <div class="actions">
+        <a class="btn" href="mailto:dharmikfusion@gmail.com">Email us</a>
+        <button class="btn btn-ghost" type="button" id="copy">Copy email address</button>
+      </div>
+      <p class="toast" id="toast" aria-live="polite"></p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Dharmik Fusion · Quarry community</span>
-    <span>dharmikfusion.org</span>
+    <div>
+      <div class="foot-name">Dharmik Fusion Cultural Club</div>
+      <div>Rooted in heritage, growing together · Erith</div>
+    </div>
+    <div>
+      <a href="mailto:dharmikfusion@gmail.com">dharmikfusion@gmail.com</a><br>
+      © 2026 Dharmik Fusion Cultural Club
+    </div>
   </div>
 </footer>
 
 <dialog id="lightbox" aria-label="Photo">
-  <button class="close" type="button" id="lb-close">Close</button>
+  <button class="btn close" type="button" id="lb-close">Close</button>
   <img id="lb-img" alt="">
   <p id="lb-cap"></p>
 </dialog>
@@ -181,17 +279,33 @@
     var dlg = document.getElementById('lightbox');
     var img = document.getElementById('lb-img');
     var cap = document.getElementById('lb-cap');
-    if (!dlg || typeof dlg.showModal !== 'function') return;
-    document.querySelectorAll('.wall button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        img.src = b.dataset.full;
-        img.alt = b.querySelector('img').alt;
-        cap.textContent = b.dataset.caption || '';
-        dlg.showModal();
+    if (dlg && typeof dlg.showModal === 'function') {
+      document.querySelectorAll('.wall button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          img.src = b.dataset.full;
+          img.alt = b.querySelector('img').alt;
+          cap.textContent = b.dataset.caption || '';
+          dlg.showModal();
+        });
       });
+      document.getElementById('lb-close').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    }
+
+    var copy = document.getElementById('copy');
+    var toast = document.getElementById('toast');
+    var email = document.getElementById('email');
+    copy.addEventListener('click', function () {
+      var text = email.textContent.trim();
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(email);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        toast.textContent = 'Address selected. Press copy on your device.';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { toast.textContent = 'Email address copied'; }, selectIt);
+      } else { selectIt(); }
     });
-    document.getElementById('lb-close').addEventListener('click', function () { dlg.close(); });
-    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   })();
 </script>
 </body>
